@@ -1,0 +1,77 @@
+#calendar {
+  box-shadow: 0 0 10px 0 #eee;
+  border-radius: 20px;
+  width: 70vw;
+  background-color: aliceblue;
+  padding: 20px;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .month-year {
+      font-size: 26px;
+      font-weight: 600;
+    }
+    .arrow {
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+      img {
+        width: 30px;
+      }
+    }
+  }
+  .weeks {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 3px -3px crimson;
+    color: crimson;
+    li {
+      font-size: 16px;
+      font-weight: 550;
+      width: calc(100% / 7);
+      text-align: center;
+    }
+  }
+  .days {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    li {
+      text-align: center;
+      width: calc(100% / 7);
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: -1;
+        transition: 0.3s;
+      }
+
+      &:hover::after {
+        background-color: rgba(220, 20, 60, 0.3);
+      }
+      &.active::after {
+        background-color: crimson;
+      }
+      &.active {
+        color: aliceblue;
+      }
+      &.inactive {
+        color: #aaa;
+      }
+    }
+  }
+}

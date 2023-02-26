@@ -293,11 +293,12 @@ const ticTacToe = {
     this.cells[parseInt(cellId)].innerHTML = icon;
     //đổi người chơi
 
-    $(".play-turn").classList.toggle("o", this.aiTurn);
+    $(".play-turn").classList.toggle("o", !this.aiTurn);
 
     // kiểm tra thắng
     let gameWin = this.checkWin(this.gameBoard, player);
     gameWin && this.gameOver(gameWin);
+    this.checkTie();
   },
   checkWin(board, player) {
     //
@@ -326,8 +327,10 @@ const ticTacToe = {
   gameOver(gameWin) {
     //
     player = gameWin.player;
-    for (let i of this.winCombo[gameWin.index]) {
-      this.cells[i].classList.add("active");
+    if (player !== "tie") {
+      for (let i of this.winCombo[gameWin.index]) {
+        this.cells[i].classList.add("active");
+      }
     }
     // for (var i = 0; i < this.cells.length; i++) {
     //   this.cells[i].removeEventListener("click", this.turnClick, false);

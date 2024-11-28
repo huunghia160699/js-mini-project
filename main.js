@@ -1,16 +1,16 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-// $("#js-select").onchange = (e) => {
-//   tab = e.target.value;
-//   if (tab === "calendar") {
-//     calendar.start();
-//   } else if (tab === "draggable slider tab") {
-//     draggableSliderTab.start();
-//   } else if (tab === "tic tac toe") {
-//     ticTacToe.start();
-//   }
-// };
+$("#js-select").onchange = (e) => {
+  tab = e.target.value;
+  if (tab === "calendar") {
+    calendar.start();
+  } else if (tab === "draggable slider tab") {
+    draggableSliderTab.start();
+  } else if (tab === "tic tac toe") {
+    ticTacToe.start();
+  }
+};
 
 const calendar = {
   months: [
